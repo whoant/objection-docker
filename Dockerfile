@@ -5,14 +5,14 @@ ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 ENV PATH $PATH:/opt/platform-tools
 
-RUN apt update && apt upgrade -yf && \
-    apt install -y  software-properties-common && \
-    apt install -y python3.7 python3-pip unzip aapt zipalign && \
+RUN apt-get update && apt-get upgrade -yf && \
+    apt-get install -y software-properties-common && \
+    apt-get install -y python3.7 python3-pip unzip aapt zipalign && \
     add-apt-repository ppa:webupd8team/java -y && \
-    apt update && \
+    apt-get update && \
     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-    apt install -y oracle-java8-installer && \
-    apt clean && \
+    apt-get install -y oracle-java8-installer && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     pip3 install -U pip && \
     pip install objection && \
